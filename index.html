@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Emma Harrington | Small-town romance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marine:#3A5A78;
+  --piscine:#8FB8D4;
+  --piscine-soft:#DDEAF3;
+  --sable:#F1D08A;
+  --sable-soft:#F8E6BE;
+  --chili:#D2461C;
+  --melon:#F68D3D;
+  --melon-soft:#FCDDC2;
+  --olive:#9C9A63;
+  --cream:#FBF4E8;
+  --linen:#F5EBDB;
+  --ink:#3A5A78;
+  --shadow:0 1px 2px rgba(58,90,120,.12), 0 16px 30px -16px rgba(58,90,120,.45);
+
+  --sans:"League Spartan", "Futura", "Trebuchet MS", sans-serif;
+  --serif:"Playfair Display", Georgia, "Times New Roman", serif;
+  --script:"Yellowtail", "Brush Script MT", cursive;
+  --body:"Montserrat", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.7;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--chili);outline-offset:4px;border-radius:3px}
+h1,h2,h3{margin:0;font-weight:700;line-height:1.08}
+h2{font-family:var(--serif);color:var(--marine)}
+h3{font-family:var(--serif)}
+p{margin:0 0 1em}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.script{font-family:var(--script);font-weight:400}
+
+/* paper + tape */
+.paper{background:var(--cream);color:var(--ink);box-shadow:var(--shadow);position:relative}
+.tape{position:absolute;width:104px;height:28px;z-index:3;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(246,141,61,.55) 0 8px,rgba(251,244,232,.7) 8px 16px);
+  clip-path:polygon(3% 0,97% 4%,100% 50%,96% 100%,2% 95%,0 50%)}
+.tape.blue{background:repeating-linear-gradient(90deg,rgba(143,184,212,.7) 0 8px,rgba(251,244,232,.7) 8px 16px)}
+.tape.sand{background:rgba(241,208,138,.8)}
+
+/* scalloped section tops */
+.band{position:relative;background:var(--bg)}
+.band::before{content:"";position:absolute;left:0;right:0;top:-14px;height:15px;
+  background:radial-gradient(circle at 50% 100%, var(--edge) 13px, transparent 13.5px) 0 0/28px 15px repeat-x;z-index:2}
+
+/* ---------- nav with awning ---------- */
+.topbar{position:sticky;top:0;z-index:60;background:var(--cream);padding-top:env(safe-area-inset-top,0px)}
+.topbar::after{content:"";position:absolute;left:0;right:0;top:100%;height:18px;
+  background:repeating-linear-gradient(90deg,var(--melon) 0 30px,var(--cream) 30px 60px);
+  -webkit-mask:radial-gradient(circle at 15px 0,#000 15px,transparent 15.5px) 0 0/30px 18px repeat-x;
+          mask:radial-gradient(circle at 15px 0,#000 15px,transparent 15.5px) 0 0/30px 18px repeat-x;
+  filter:drop-shadow(0 3px 2px rgba(58,90,120,.15))}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.brand{font-family:var(--script);font-size:1.9rem;color:var(--marine);text-decoration:none;white-space:nowrap;line-height:1}
+.links{display:flex;gap:28px;overflow-x:auto;scrollbar-width:none}
+.links::-webkit-scrollbar{display:none}
+.links a{font-family:var(--sans);font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;padding:6px 0 3px;
+  background:linear-gradient(var(--chili),var(--chili)) 0 100%/0 2px no-repeat;transition:background-size .25s}
+.links a:hover{background-size:100% 2px}
+
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font:700 1rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:2px solid var(--chili);border-radius:4px;padding:14px 22px 11px;
+  background:var(--chili);color:#fff;text-decoration:none;display:inline-block;transition:background .2s,border-color .2s,transform .2s}
+.btn:hover{background:var(--marine);border-color:var(--marine);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--marine);border-color:var(--marine)}
+.btn.ghost:hover{background:var(--marine);color:var(--cream)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;height:clamp(660px,calc(100svh - 64px),900px);overflow:hidden;background:var(--cream)}
+.scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.nameplate{position:absolute;left:max(24px,5vw);top:clamp(56px,10vh,120px);width:min(520px,44vw);padding:44px 40px 34px;transform:rotate(-1deg);z-index:4;background:rgba(251,244,232,.97)}
+.nameplate .tape{top:-13px;left:36px;transform:rotate(-5deg)}
+.nameplate .tape.r{left:auto;right:30px;transform:rotate(6deg)}
+.lockup{position:relative;margin:0 0 26px;line-height:1}
+.lockup .big{display:block;font-family:var(--sans);font-weight:800;font-size:clamp(4.2rem,8.6vw,7.6rem);letter-spacing:.02em;color:var(--melon);line-height:.82;text-transform:uppercase}
+.lockup .over{display:inline-block;font-family:var(--script);font-weight:400;font-size:clamp(3rem,5.6vw,4.9rem);color:var(--marine);margin:-.5em 0 0 .35em;transform:rotate(-6deg);transform-origin:left;line-height:1.1;position:relative}
+.lockup .over::after{content:"";position:absolute;left:.2em;right:-.1em;bottom:.08em;height:.09em;background:var(--marine);border-radius:99px;transform:rotate(-2deg)}
+.nameplate .tag{font-size:1.02rem;max-width:36ch;margin-bottom:24px}
+.kicker{font-family:var(--sans);font-weight:700;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:var(--chili);margin:20px 0 0;line-height:1.4}
+
+/* scene animation */
+.sun{animation:rise 6s cubic-bezier(.2,.7,.3,1) .2s both}
+@keyframes rise{from{transform:translateY(190px)}}
+.glow{transform-box:fill-box;transform-origin:center;animation:glow 5s ease-in-out infinite alternate}
+@keyframes glow{to{opacity:.15;transform:scale(1.12)}}
+.cloud{animation:drift var(--d,60s) ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(var(--dx,120px))}}
+.wv{animation:wave var(--d) linear infinite}
+@keyframes wave{to{transform:translateX(var(--shift))}}
+.ship{animation:sail 90s linear infinite}
+@keyframes sail{from{transform:translateX(-80px)}to{transform:translateX(720px)}}
+.bob{animation:bob 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes bob{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg) translateY(3px)}}
+.beam{transform-box:view-box;transform-origin:0 0;animation:sweep 7s ease-in-out infinite}
+@keyframes sweep{0%,100%{transform:scaleX(1);opacity:.85}48%,52%{opacity:.15}50%{transform:scaleX(-1)}}
+.flock{animation:fly var(--d,40s) linear infinite}
+@keyframes fly{from{transform:translateX(-260px)}to{transform:translateX(1700px)}}
+.wing{transform-box:fill-box;transform-origin:50% 60%;animation:flap .9s ease-in-out infinite}
+@keyframes flap{50%{transform:scaleY(-.35)}}
+.dash{animation:roll 1.6s linear infinite}
+@keyframes roll{to{stroke-dashoffset:-68}}
+.umb{transform-box:fill-box;transform-origin:50% 100%;animation:sway 5s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(3deg)}}
+
+/* ---------- section heads ---------- */
+.sec{padding:100px 0}
+.head{display:flex;align-items:flex-end;gap:10px 28px;flex-wrap:wrap;margin-bottom:44px}
+.head h2{font-size:clamp(2.3rem,4.8vw,3.6rem)}
+.head .aside{font-size:1rem;max-width:40ch;margin:0 0 6px}
+.head .aside .script{font-size:1.6rem;color:var(--chili);display:block;line-height:1.1}
+
+/* ---------- BOOKS (cabana stripes) ---------- */
+#books{--bg:var(--cream);--edge:var(--cream);background-image:repeating-linear-gradient(90deg,#FBF4E8 0 46px,#F8E6BE 46px 92px)}
+#books .head .aside{background:var(--cream);padding:12px 16px;box-shadow:var(--shadow);transform:rotate(-1.2deg)}
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.slot{display:flex;flex-direction:column}
+.slot:nth-child(odd){transform:rotate(-1deg)}
+.slot:nth-child(even){transform:rotate(1deg) translateY(16px)}
+.book{display:block;width:100%;perspective:1400px;cursor:pointer;border:none;background:none;padding:0;text-align:left;font:inherit;color:inherit}
+.book-inner{position:relative;width:100%;padding-top:150%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,.2,.2,1)}
+.book.flipped .book-inner{transform:rotateY(180deg)}
+.face{position:absolute;top:0;left:0;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:3px 8px 8px 3px;box-shadow:var(--shadow);overflow:hidden}
+.cover{text-align:center;color:var(--marine)}
+.cover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:9px;background:linear-gradient(90deg,rgba(58,90,120,.18),transparent);z-index:2}
+.cover::after{content:"";position:absolute;inset:8px;border:1px solid rgba(255,255,255,.65);border-radius:2px;pointer-events:none;z-index:2}
+.cover .top{position:absolute;top:22px;left:12px;right:12px;z-index:1}
+.cover .ser{font-family:var(--script);font-size:1.3rem;line-height:1;color:var(--chili);display:block}
+.cover .ttl{display:block;font-family:var(--serif);font-weight:700;font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.05;margin-top:8px}
+.cover .auth{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:1;font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.22em;background:rgba(251,244,232,.88);padding:5px 9px 3px;white-space:nowrap}
+.cover svg.motif{position:absolute;left:0;right:0;bottom:0;width:100%;height:58%}
+.c1{background:linear-gradient(180deg,#FCDDC2 0%,#FBF0DC 62%)}
+.c2{background:linear-gradient(180deg,#DDEAF3 0%,#FBF0DC 70%)}
+.c3{background:linear-gradient(180deg,#F8E6BE 0%,#FCDDC2 100%)}
+.c4{background:linear-gradient(180deg,#DDEAF3 0%,#F5EBDB 70%)}
+.back{transform:rotateY(180deg);background:var(--cream);padding:20px 18px 18px;display:block;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  border-top:5px solid var(--melon)}
+.back h3{font-size:1.2rem;line-height:1.15;color:var(--chili);margin:0 0 10px}
+.back p{font-size:.84rem;line-height:1.55;margin:0 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-family:var(--sans);font-weight:700;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 8px 3px;border-radius:3px;background:var(--melon-soft);line-height:1.2}
+.chip:nth-child(2){background:var(--piscine-soft)}
+.chip:nth-child(3){background:var(--sable-soft)}
+.flip-hint{font-family:var(--sans);font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--chili);margin-top:12px;display:block}
+.book-meta{margin-top:14px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 8px;background:var(--cream);padding:8px 12px 6px;box-shadow:var(--shadow)}
+.book-meta span:first-child{font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.book-meta .when{font-family:var(--script);font-size:1.3rem;color:var(--chili);line-height:1}
+
+/* ---------- MAP (linen) ---------- */
+#pebble-bay{--bg:var(--linen);--edge:var(--linen);
+  background-image:repeating-linear-gradient(0deg,rgba(156,154,99,.08) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(156,154,99,.07) 0 1px,transparent 1px 4px)}
+.map-board{display:grid;grid-template-columns:1fr 310px;gap:32px;align-items:start}
+.map{padding:12px;transform:rotate(.5deg)}
+.map .tape.a{top:-11px;left:-18px;transform:rotate(-30deg)}
+.map .tape.b{bottom:-9px;right:-22px;transform:rotate(-25deg)}
+.map-inner{position:relative}
+.map-inner svg{display:block;width:100%;height:auto}
+.pin{position:absolute;transform:translate(-50%,-100%);border:none;background:none;cursor:pointer;padding:0;width:36px;height:48px}
+.pin svg{width:100%;height:100%;transition:transform .2s cubic-bezier(.3,1.6,.5,1);transform-origin:50% 100%}
+.pin:hover svg,.pin[aria-pressed="true"] svg{transform:scale(1.22) translateY(-3px)}
+.pin .lbl{position:absolute;top:100%;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--marine);background:rgba(251,244,232,.92);padding:3px 6px 1px;border-radius:2px;line-height:1.3}
+.notecard{padding:28px 24px 24px;transform:rotate(-1.2deg);min-height:260px;border-top:5px solid var(--chili);
+  background-image:repeating-linear-gradient(transparent 0 29px, rgba(143,184,212,.5) 29px 30px);background-position:0 58px}
+.notecard .tape{top:-15px;right:28px;transform:rotate(7deg)}
+.notecard h3{font-size:1.5rem;color:var(--marine);margin-bottom:12px}
+.notecard p{font-size:.95rem;line-height:30px;margin:0}
+.notecard.flash{animation:flash .45s ease}
+@keyframes flash{35%{transform:rotate(1.5deg) translateY(-7px)}}
+
+/* ---------- DOOR (melon stripes) ---------- */
+#door{--bg:var(--cream);--edge:#FCE3CD;background-image:repeating-linear-gradient(90deg,#FCE3CD 0 38px,#FBF4E8 38px 76px)}
+.door-wrap{display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:center}
+.door-scene{position:relative;width:250px;height:376px}
+.frame{position:absolute;inset:0;background:var(--cream);border-radius:125px 125px 6px 6px;box-shadow:var(--shadow);padding:13px}
+.doorway{position:relative;width:100%;height:100%;border-radius:113px 113px 2px 2px;overflow:hidden;background:linear-gradient(var(--sable),var(--melon));perspective:900px}
+.peek{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:10px}
+.peek span{font-family:var(--script);color:var(--marine);font-size:1.5rem;writing-mode:vertical-rl;transform:rotate(180deg);opacity:0;transition:opacity .3s .3s}
+.door-scene.open .peek span{opacity:1}
+.door{position:absolute;inset:0;border:none;cursor:pointer;padding:0;background:var(--piscine);border-radius:113px 113px 2px 2px;transform-origin:0 50%;transition:transform .8s cubic-bezier(.5,1.5,.5,1);box-shadow:inset 0 0 0 9px #7AA7C6}
+.door-scene.open .door{transform:rotateY(-32deg)}
+.door .panel{position:absolute;left:22%;right:22%;border:3px solid rgba(255,255,255,.6);border-radius:8px}
+.door .panel.top{top:22%;height:26%;border-radius:60px 60px 8px 8px}
+.door .panel.bot{top:56%;height:30%}
+.door .knob{position:absolute;right:14%;top:52%;width:18px;height:18px;border-radius:50%;background:var(--sable);box-shadow:inset -3px -3px 0 #D9B160}
+.door .heart{position:absolute;left:50%;top:9%;transform:translateX(-50%);width:30px}
+.door-sign{position:absolute;top:44%;left:-30px;z-index:3;background:var(--cream);font-family:var(--script);font-size:1.5rem;padding:4px 14px 2px;transform:rotate(-10deg);box-shadow:var(--shadow);pointer-events:none;border-left:4px solid var(--chili);color:var(--marine)}
+.door-copy{padding:40px 40px 30px;transform:rotate(.5deg)}
+.door-copy h2{font-size:clamp(2.2rem,4.4vw,3.3rem);margin-bottom:18px}
+.door-copy p{max-width:56ch}
+.reply{font-family:var(--script);font-size:1.9rem;color:var(--chili);min-height:2.2em;line-height:1.15;margin:0}
+.levels{display:flex;flex-wrap:wrap;gap:14px;margin:24px 0 20px}
+.level{background:#fff;padding:12px 16px 10px;box-shadow:var(--shadow);min-width:150px}
+.level:nth-child(1){border-top:4px solid var(--melon)}
+.level:nth-child(2){border-top:4px solid var(--chili)}
+.level:nth-child(3){border-top:4px solid var(--piscine)}
+.level b{display:block;font-family:var(--sans);font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+.meter{display:flex;gap:4px;margin-top:6px}
+.meter i{width:17px;height:17px}
+.meter svg{width:100%;height:100%}
+.level .script{font-size:1.35rem;color:var(--chili)}
+
+/* ---------- ABOUT (piscine) ---------- */
+#about{--bg:var(--piscine-soft);--edge:var(--piscine-soft)}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+.polaroid{position:relative;background:#fff;padding:13px 13px 56px;box-shadow:var(--shadow);width:100%;max-width:330px;margin:0 auto;transform:rotate(-3.5deg);transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.polaroid:hover{transform:rotate(-1deg) scale(1.02)}
+.polaroid .tape{top:-12px;left:50%;margin-left:-52px;transform:rotate(3deg)}
+.polaroid .cap{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:var(--script);font-size:1.7rem;color:var(--marine)}
+.portrait-ph{aspect-ratio:1;background:linear-gradient(160deg,var(--sable-soft),var(--sable) 45%,var(--melon));display:grid;place-items:center;text-align:center}
+.portrait-ph{position:relative;overflow:hidden}
+.portrait-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait-ph span{font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(251,244,232,.85);padding:7px 12px 5px;transform:rotate(-3deg)}
+.letter{padding:48px 46px 40px 72px;transform:rotate(.6deg);background-image:linear-gradient(90deg,transparent 40px, rgba(210,70,28,.3) 40px 42px, transparent 42px)}
+.letter .tape{top:-13px;right:56px;transform:rotate(4deg)}
+.letter h2{font-size:clamp(2.1rem,4.2vw,3.1rem);margin-bottom:18px}
+.letter p{max-width:60ch}
+.sig{font-family:var(--script);font-size:2.4rem;color:var(--chili);transform:rotate(-4deg);display:inline-block;line-height:1}
+
+/* ---------- NEWSLETTER (marine) ---------- */
+#newsletter{--bg:var(--marine);--edge:var(--marine);
+  background-image:repeating-linear-gradient(135deg,rgba(143,184,212,.08) 0 14px,transparent 14px 28px)}
+.signup-card{max-width:760px;margin:0 auto;padding:46px 48px 40px;text-align:center;transform:rotate(-.6deg)}
+.signup-card .tape.a{top:-13px;left:-24px;transform:rotate(-35deg)}
+.signup-card .tape.b{top:-13px;right:-24px;transform:rotate(35deg)}
+.signup-card .script{font-size:2rem;color:var(--chili);display:block;line-height:1;margin-bottom:4px}
+.signup-card h2{font-size:clamp(2.2rem,5vw,3.3rem);margin-bottom:16px}
+.signup-card p{max-width:50ch;margin:0 auto 24px}
+.signup{display:flex;gap:10px;max-width:500px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.field{font:inherit;color:var(--marine);background:#fff;border:2px solid var(--piscine);border-radius:4px;padding:11px 16px;min-width:0;flex:1 1 230px}
+.field::placeholder{color:#8DA3B8}
+.signup-done{font-family:var(--script);font-size:1.8rem;color:var(--chili);margin:14px 0 0;min-height:1.3em;line-height:1.1}
+
+/* ---------- POSTCARD (sable gingham) ---------- */
+#postcard{--bg:#FBF1DE;--edge:#FBF1DE;
+  background-image:linear-gradient(90deg,rgba(241,208,138,.45) 50%,transparent 50%),linear-gradient(rgba(241,208,138,.45) 50%,transparent 50%);
+  background-size:30px 30px}
+#postcard .head{justify-content:center;text-align:center;flex-direction:column;align-items:center}
+#postcard .head .aside{background:var(--cream);padding:10px 16px;box-shadow:var(--shadow)}
+.post-area{position:relative;display:flex;flex-direction:column;align-items:center;min-height:300px}
+.postcard{width:min(860px,100%);background:#FFFCF6;color:var(--ink);box-shadow:var(--shadow);
+  display:grid;grid-template-columns:1.15fr 1fr;padding:32px 32px 28px;position:relative;
+  transform:rotate(-.8deg);transition:transform 1s cubic-bezier(.55,-.25,.4,1), opacity .5s ease .45s}
+.postcard::before{content:"";position:absolute;inset:0;border:7px solid transparent;pointer-events:none;
+  border-image:repeating-linear-gradient(135deg,var(--chili) 0 10px,#FFFCF6 10px 20px,var(--piscine) 20px 30px,#FFFCF6 30px 40px) 7}
+.postcard .msg{padding-right:26px;border-right:1.5px solid rgba(58,90,120,.25);display:flex;flex-direction:column;gap:8px}
+.postcard label{font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--chili);line-height:1}
+.postcard .dear{font-family:var(--script);font-size:1.9rem;letter-spacing:0;text-transform:none;color:var(--marine)}
+.postcard textarea{flex:1;resize:none;border:none;background:transparent;font-family:var(--body);font-size:1rem;color:var(--ink);line-height:34px;
+  background-image:repeating-linear-gradient(transparent 0 33px, rgba(58,90,120,.2) 33px 34px);padding:0;min-height:236px}
+.postcard .addr{padding-left:26px;display:flex;flex-direction:column;gap:9px;position:relative}
+.stamp{align-self:flex-end;width:88px;height:106px;padding:6px;background:radial-gradient(circle at 5px 5px, transparent 3.2px, #fff 3.8px) -5px -5px/10px 10px;filter:drop-shadow(0 1px 1px rgba(58,90,120,.3))}
+.stamp-art{width:100%;height:100%;overflow:hidden}
+.stamp-art svg{width:100%;height:100%;display:block}
+.postmark{position:absolute;top:4px;right:52px;width:118px;height:118px;opacity:0;transform:rotate(-30deg) scale(1.6);transition:opacity .2s, transform .35s cubic-bezier(.3,1.6,.5,1);pointer-events:none;z-index:2}
+.postmark.on{opacity:.85;transform:rotate(-14deg) scale(1)}
+.printed{font-family:var(--script);font-size:1.75rem;line-height:1.15;margin:2px 0 6px;border-bottom:1.5px solid rgba(58,90,120,.22);padding-bottom:6px}
+.printed small{display:block;font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--olive)}
+.postcard input,.postcard select{border:none;border-bottom:1.5px solid rgba(58,90,120,.25);background:transparent;font-family:var(--body);font-size:1rem;color:var(--ink);padding:6px 0 5px;width:100%;border-radius:0;margin-bottom:4px}
+.postcard select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:28px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23D2461C' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") right 4px center/14px 9px no-repeat}
+.postcard select:invalid{color:#8DA3B8}
+.postcard option{color:var(--ink)}
+.postcard input::placeholder,.postcard textarea::placeholder{color:#8DA3B8}
+.postcard .send{margin-top:auto;align-self:flex-end}
+.postcard .send:disabled{opacity:.7;cursor:wait}
+.form-err{font-size:.88rem;font-weight:600;color:var(--chili);min-height:1.3em;margin:0}
+.postcard.mailing{transform:translate(60vw,-40vh) rotate(24deg) scale(.35);opacity:0}
+.sent{display:none;text-align:center;max-width:500px;padding:32px 32px 28px;transform:rotate(1deg)}
+.sent.show{display:block;animation:pop .55s cubic-bezier(.2,1.5,.4,1)}
+@keyframes pop{from{opacity:0;transform:scale(.8) rotate(-4deg)}}
+.sent .script{font-size:2.6rem;color:var(--chili);display:block;line-height:1;margin-bottom:10px}
+
+/* ---------- FOOTER ---------- */
+footer{--bg:var(--marine);--edge:var(--marine);padding:58px 0 48px;text-align:center;color:var(--cream)}
+.foot-name{font-family:var(--script);font-size:2.8rem;line-height:1;color:var(--sable)}
+.socials{display:flex;justify-content:center;gap:26px;margin:18px 0 20px;flex-wrap:wrap}
+.socials a{font-family:var(--sans);font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.socials a:hover{color:var(--melon)}
+.small{font-size:.82rem;opacity:.85;margin:0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){ .shelf{grid-template-columns:repeat(2,minmax(0,300px));justify-content:center;gap:44px 36px} }
+@media (max-width:900px){
+  .map-board,.about,.door-wrap{grid-template-columns:1fr}
+  .door-scene{margin:0 auto}
+  .notecard{min-height:0}
+}
+@media (max-width:760px){
+  .hero{height:auto;overflow:visible;padding-bottom:30px}
+  .scene{position:relative;height:auto}
+  .nameplate{position:relative;left:auto;top:auto;width:auto;margin:-36px 16px 0;padding:38px 24px 28px}
+  .brand{display:none}
+  .topbar .wrap{justify-content:center}
+  .links{gap:18px}
+  .links a{font-size:.85rem}
+}
+@media (max-width:640px){
+  .shelf{grid-template-columns:minmax(0,300px)}
+  .slot:nth-child(even){transform:rotate(1deg)}
+  .postcard{grid-template-columns:1fr;padding:24px 22px}
+  .postcard .msg{border-right:none;border-bottom:1.5px solid rgba(58,90,120,.25);padding:0 0 18px}
+  .postcard .addr{padding:18px 0 0}
+  .postcard textarea{min-height:170px}
+  .stamp{position:absolute;top:-4px;right:0;width:68px;height:84px}
+  .postmark{right:26px;width:88px;height:88px;top:0}
+  .printed{margin-right:80px}
+  .letter{padding:40px 22px 30px 54px;background-image:linear-gradient(90deg,transparent 30px, rgba(210,70,28,.3) 30px 32px, transparent 32px)}
+  .signup-card{padding:36px 22px 30px}
+  .door-copy{padding:32px 22px 24px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* ---------- book covers (no flip) ---------- */
+.book .cover-wrap{display:block;position:relative;width:100%;padding-top:150%;transition:transform .3s cubic-bezier(.3,1.4,.5,1)}
+.book:hover .cover-wrap{transform:translateY(-6px) rotate(-1deg)}
+.cover{position:absolute;top:0;left:0;width:100%;height:100%;display:block;border-radius:3px 8px 8px 3px;box-shadow:var(--shadow);overflow:hidden}
+.cover .top{display:block}
+.readback{display:inline-block;margin-top:14px;font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--chili);border-bottom:2px solid var(--melon);padding-bottom:2px;background:var(--cream);padding:6px 10px 3px;box-shadow:var(--shadow)}
+.book:hover .readback{background:var(--chili);color:#fff;border-color:var(--chili)}
+
+/* ---------- where to buy ---------- */
+.buy{margin:76px auto 0;max-width:900px;padding:38px 40px 34px;text-align:center;transform:rotate(-.5deg)}
+.buy .tape{top:-13px;left:40px;transform:rotate(-5deg)}
+.buy .tape.r{left:auto;right:40px;transform:rotate(5deg)}
+.buy h3{font-size:clamp(1.9rem,3.6vw,2.5rem);color:var(--marine);margin-bottom:10px}
+.buy p{max-width:50ch;margin:0 auto 22px}
+.stores{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.stores a{font-family:var(--sans);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--marine);
+  border:2px solid var(--marine);border-radius:4px;padding:11px 16px 8px;background:#fff;transition:background .2s,color .2s,border-color .2s}
+.stores a:hover{background:var(--chili);border-color:var(--chili);color:#fff}
+
+/* ---------- book modal ---------- */
+body.modal-open{overflow:hidden}
+.modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+  padding:calc(env(safe-area-inset-top,0px) + 20px) 16px calc(env(safe-area-inset-bottom,0px) + 20px)}
+.modal[hidden]{display:none}
+.modal-backdrop{position:absolute;inset:0;background:rgba(58,90,120,.62)}
+.modal-panel{position:relative;background:var(--cream);color:var(--ink);box-shadow:0 30px 60px -20px rgba(0,0,0,.45);
+  width:min(880px,100%);max-height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  display:grid;grid-template-columns:230px minmax(0,1fr);gap:36px;padding:44px 44px 40px;border-top:7px solid var(--melon);
+  animation:flipin .55s cubic-bezier(.2,.9,.3,1)}
+@keyframes flipin{from{opacity:0;transform:perspective(1400px) rotateY(60deg)}}
+.m-cover{position:relative;padding-top:150%;align-self:start}
+.m-cover .cover .ttl{font-size:1.55rem}
+.m-ser{font-size:1.7rem;color:var(--chili);display:block;line-height:1}
+.m-body h3{font-size:clamp(1.9rem,3.6vw,2.6rem);color:var(--marine);margin:6px 0 8px}
+.m-when{font-family:var(--sans);font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);margin:0 0 18px}
+.m-blurb p{font-size:1.06rem;line-height:1.75;max-width:54ch;margin:0 0 14px}
+.m-body .chips{margin:18px 0 24px;gap:8px}
+.m-body .chip{font-size:.78rem;padding:7px 11px 5px}
+.m-buy{border-top:1.5px dashed rgba(58,90,120,.3);padding-top:20px}
+.m-buy-label{display:block;font-family:var(--script);font-size:1.7rem;color:var(--chili);line-height:1;margin-bottom:12px}
+.m-buy .stores{justify-content:flex-start;gap:8px}
+.m-buy .stores a{font-size:.75rem;padding:9px 12px 6px}
+.modal-close{position:absolute;top:12px;right:14px;width:42px;height:42px;border-radius:50%;border:none;background:var(--melon-soft);color:var(--marine);font-size:1.7rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.modal-close:hover{background:var(--melon);color:#fff}
+
+/* ---------- door prompt ---------- */
+.door-col{display:flex;flex-direction:column;align-items:center;gap:22px}
+.door-cta{display:flex;align-items:flex-end;gap:8px;margin:0;font-family:var(--script);font-size:1.75rem;line-height:1;color:var(--chili);transform:rotate(-3deg)}
+.door-cta svg{color:var(--marine);flex:none}
+.door-tip{font-family:var(--sans);font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);margin:6px 0 0}
+.door-scene.idle .door{animation:nudge 3.6s ease-in-out infinite}
+@keyframes nudge{0%,70%,100%{transform:rotateY(0)}78%{transform:rotateY(-14deg)}86%{transform:rotateY(-4deg)}92%{transform:rotateY(-9deg)}}
+.door-scene.idle .knob{animation:shine 1.8s ease-in-out infinite}
+@keyframes shine{50%{box-shadow:inset -3px -3px 0 #D9B160,0 0 0 7px rgba(241,208,138,.55)}}
+
+/* ---------- mobile polish ---------- */
+@media (max-width:760px){
+  html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 96px)}
+  .topbar .wrap{height:auto;padding-top:12px;padding-bottom:10px}
+  .links{flex-wrap:wrap;justify-content:center;gap:4px 18px;overflow:visible}
+  .links a{font-size:.8rem}
+  .sec{padding:76px 0}
+  .head{margin-bottom:32px}
+  .pin{width:28px;height:38px}
+  .pin .lbl{font-size:.56rem;padding:2px 4px 0}
+  .map{padding:8px}
+}
+@media (max-width:640px){
+  .shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 16px;max-width:none}
+  .slot:nth-child(even){transform:rotate(1deg) translateY(12px)}
+  .cover .top{top:14px;left:8px;right:8px}
+  .cover .ttl{font-size:1rem;margin-top:4px}
+  .cover .ser{font-size:.92rem}
+  .cover .auth{font-size:.5rem;letter-spacing:.14em;bottom:10px;padding:3px 6px 2px}
+  .readback{font-size:.66rem;padding:5px 8px 3px;margin-top:10px}
+  .book-meta{padding:6px 8px 4px;flex-direction:column}
+  .book-meta span:first-child{font-size:.68rem}
+  .book-meta .when{font-size:1.1rem}
+  .modal{padding:calc(env(safe-area-inset-top,0px) + 10px) 10px calc(env(safe-area-inset-bottom,0px) + 10px)}
+  .modal-panel{grid-template-columns:1fr;gap:20px;padding:30px 22px 26px}
+  .m-cover{width:150px;padding-top:225px;margin:0 auto}
+  .m-cover .cover .ttl{font-size:1.15rem}
+  .m-cover .cover .ser{font-size:1rem}
+  .m-body{text-align:left}
+  .m-blurb p{font-size:1rem}
+  .buy{padding:32px 20px 28px;margin-top:60px}
+  .stores a{font-size:.78rem;padding:10px 12px 7px}
+  .door-wrap{gap:36px}
+  .door-scene{width:220px;height:330px}
+  .door-cta{font-size:1.55rem}
+  .levels{gap:10px}
+  .level{min-width:0;flex:1 1 130px}
+  .lockup .big{font-size:4rem}
+}
+@media (prefers-reduced-motion: reduce){ .door-scene.idle .door,.door-scene.idle .knob{animation:none} }
+
+/* ---------- series, coming soon, cover images, town tabs ---------- */
+.series + .series{margin-top:110px}
+.cover-img img{display:block;width:100%;height:100%;object-fit:cover}
+.cover-img::after{inset:0;border:none}
+.slot.soon .cover-wrap{display:block;position:relative;width:100%;padding-top:150%}
+.cover-soon{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;
+  background:linear-gradient(180deg,#DDEAF3 0%,#FBF4E8 70%);color:var(--marine)}
+.cover-soon::after{border:1.5px dashed rgba(58,90,120,.35)}
+.soon-ser{font-family:var(--script);font-size:1.4rem;color:var(--chili);line-height:1;position:relative;z-index:1}
+.soon-num{font-family:var(--serif);font-weight:700;font-size:clamp(2rem,3.4vw,2.8rem);line-height:1;position:relative;z-index:1}
+.soon-stamp{position:relative;z-index:1;margin-top:8px;font-family:var(--sans);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--chili);border:2.5px solid var(--chili);border-radius:4px;padding:8px 12px 5px;transform:rotate(-8deg);background:rgba(251,244,232,.85)}
+.slot.soon .book-meta .when{color:var(--olive)}
+.town-img{display:block;width:100%;height:auto}
+.town-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:-16px 0 28px}
+.town-tabs button{font-family:var(--sans);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+  border:2px solid var(--marine);background:var(--cream);color:var(--marine);border-radius:4px;padding:10px 14px 7px}
+.town-tabs button[aria-selected="true"]{background:var(--marine);color:var(--cream)}
+@media (max-width:640px){
+  .soon-ser{font-size:1.05rem}
+  .soon-num{font-size:1.6rem}
+  .soon-stamp{font-size:.62rem;padding:6px 8px 4px}
+}
+
+.note-type{display:block;font-family:var(--sans);font-weight:700;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--chili);margin:-6px 0 8px;line-height:1.4}
+.note-type:empty{display:none}
+.pin{z-index:1}
+.pin:hover,.pin[aria-pressed="true"]{z-index:5}
+.pin.lbl-left .lbl{left:auto;right:-2px;transform:none}
+.pin .lbl{pointer-events:none;top:auto;bottom:100%;margin-bottom:1px}
+.map-inner{container-type:inline-size}
+@container (max-width:720px){
+  .pin .lbl{display:none}
+  .pin:hover .lbl,.pin:focus-visible .lbl,.pin[aria-pressed="true"] .lbl{display:block}
+}
+@media (max-width:640px){ .pin{width:24px;height:32px} }
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Emma Harrington</a>
+    <div class="links">
+      <a href="#books">Books</a>
+      <a href="#pebble-bay">Pebble Bay</a>
+      <a href="#about">About</a>
+      <a href="#postcard">Contact</a>
+      <a href="#newsletter">Newsletter</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <svg class="scene" id="scene" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Sunrise over a coastal town: a lighthouse on the rocks, a sailboat crossing the water, striped beach umbrellas, seagulls overhead, and a country road winding down to the beach.">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#C6DBEA"/>
+        <stop offset=".42" stop-color="#F7EEDF"/>
+        <stop offset=".6" stop-color="#FBDDBA"/>
+        <stop offset=".63" stop-color="#FAD3A6"/>
+      </linearGradient>
+      <linearGradient id="beamG" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#FFF1C8" stop-opacity=".95"/>
+        <stop offset="1" stop-color="#FFF1C8" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#A9C9DE"/><stop offset="1" stop-color="#4C7091"/>
+      </linearGradient>
+      <clipPath id="waterClip"><rect x="560" y="466" width="880" height="294"/></clipPath>
+    </defs>
+
+    <rect width="1440" height="760" fill="url(#sky)"/>
+
+    <g transform="translate(1010 430)">
+      <g class="sun">
+        <circle class="glow" r="150" fill="#F68D3D" opacity=".22"/>
+        <circle r="74" fill="#F1D08A"/>
+        <circle r="74" fill="none" stroke="#F8E6BE" stroke-width="6" opacity=".8"/>
+      </g>
+    </g>
+
+    <g class="cloud" style="--d:70s;--dx:140px"><g fill="#fff" opacity=".85"><ellipse cx="700" cy="120" rx="70" ry="20"/><ellipse cx="740" cy="104" rx="44" ry="24"/><ellipse cx="672" cy="110" rx="30" ry="16"/></g></g>
+    <g class="cloud" style="--d:90s;--dx:-160px"><g fill="#fff" opacity=".75"><ellipse cx="1180" cy="170" rx="80" ry="18"/><ellipse cx="1210" cy="154" rx="46" ry="22"/></g></g>
+    <g class="cloud" style="--d:80s;--dx:110px"><g fill="#fff" opacity=".6"><ellipse cx="320" cy="250" rx="60" ry="14"/><ellipse cx="345" cy="238" rx="34" ry="16"/></g></g>
+
+    <rect x="560" y="466" width="880" height="294" fill="url(#sea)"/>
+    <g id="waves1" clip-path="url(#waterClip)"></g>
+
+    <!-- sailboat -->
+    <g transform="translate(900 488)">
+      <g class="ship"><g class="bob">
+        <path d="M-46 0 H52 L40 16 H-36Z" fill="#D2461C"/>
+        <path d="M-36 16 H40 L37 20 H-33Z" fill="#3A5A78" opacity=".35"/>
+        <rect x="-2" y="-76" width="3" height="76" fill="#9C9A63"/>
+        <rect x="-28" y="-54" width="2.5" height="54" fill="#9C9A63"/>
+        <path d="M3 -72 L40 -6 H3Z" fill="#FBF4E8"/>
+        <path d="M-3 -70 L-3 -6 H-24Z" fill="#F8E6BE"/>
+        <path d="M-25 -50 L-25 -6 H-44Z" fill="#FBF4E8"/>
+        <path d="M1 -76 L16 -71 L1 -66Z" fill="#F68D3D"/>
+      </g></g>
+    </g>
+    <g id="waves2" clip-path="url(#waterClip)"></g>
+
+    <!-- lighthouse -->
+    <path d="M1080 486 Q1100 446 1150 448 Q1200 432 1260 448 Q1310 452 1340 486 Z" fill="#D6C7AE"/>
+    <path d="M1100 486 Q1130 462 1170 470 Q1210 458 1250 474 Q1290 470 1320 486Z" fill="#C2B092"/>
+    <g transform="translate(1210 0)">
+      <rect x="-40" y="420" width="80" height="34" fill="#FBF4E8"/>
+      <path d="M-40 420 L0 398 L40 420Z" fill="#3A5A78"/>
+      <rect x="-28" y="432" width="12" height="14" fill="#8FB8D4"/>
+      <path d="M-24 450 L-17 300 H17 L24 450Z" fill="#FBF4E8"/>
+      <path d="M-21.5 400 H21.5 L22.6 420 H-22.6Z" fill="#D2461C"/>
+      <path d="M-19 340 H19 L20 360 H-20Z" fill="#D2461C"/>
+      <rect x="-22" y="296" width="44" height="7" rx="2" fill="#3A5A78"/>
+      <rect x="-14" y="270" width="28" height="26" fill="#F1D08A"/>
+      <path d="M-14 270 V296 M0 270 V296 M14 270 V296" stroke="#3A5A78" stroke-width="2"/>
+      <path d="M-19 270 L0 248 L19 270Z" fill="#3A5A78"/>
+      <circle cx="0" cy="244" r="4" fill="#D2461C"/>
+    </g>
+    <g transform="translate(1210 283)"><g class="beam"><path d="M0 0 L300 -46 L300 46Z" fill="url(#beamG)"/></g></g>
+    <g id="waves3" clip-path="url(#waterClip)"></g>
+
+    <!-- countryside -->
+    <path d="M0 440 C120 372 250 362 370 404 C450 430 520 438 620 452 L620 520 L0 520Z" fill="#D3D1A6"/>
+    <path d="M0 470 C160 430 330 440 470 456 C560 466 640 470 720 472 C780 520 812 620 878 760 L0 760Z" fill="#BDBA87"/>
+    <!-- beach -->
+    <path d="M720 472 C780 520 812 620 878 760 L990 760 C900 640 860 530 790 470Z" fill="#F3E1BE"/>
+    <path d="M790 470 C860 530 900 640 990 760" fill="none" stroke="#fff" stroke-width="4" opacity=".75"/>
+    <!-- beach umbrellas -->
+    <g transform="translate(838 610)"><g class="umb">
+      <rect x="-1.5" y="-40" width="3" height="46" fill="#9C9A63"/>
+      <path d="M-34 -36 Q0 -66 34 -36Z" fill="#FBF4E8"/>
+      <path d="M-34 -36 Q-20 -58 -6 -60 L-11 -36Z M6 -60 Q20 -58 34 -36 L11 -36Z" fill="#F68D3D"/>
+      <path d="M-34 -36 q5.6 6 11.3 0 q5.6 6 11.3 0 q5.6 6 11.3 0 q5.6 6 11.3 0 q5.6 6 11.3 0 q5.6 6 11.3 0" fill="#FBF4E8"/>
+    </g></g>
+    <g transform="translate(888 700) scale(1.25)"><g class="umb" style="animation-delay:-2s">
+      <rect x="-1.5" y="-40" width="3" height="46" fill="#9C9A63"/>
+      <path d="M-34 -36 Q0 -66 34 -36Z" fill="#FBF4E8"/>
+      <path d="M-34 -36 Q-20 -58 -6 -60 L-11 -36Z M6 -60 Q20 -58 34 -36 L11 -36Z" fill="#D2461C"/>
+      <path d="M-34 -36 q5.6 6 11.3 0 q5.6 6 11.3 0 q5.6 6 11.3 0 q5.6 6 11.3 0 q5.6 6 11.3 0 q5.6 6 11.3 0" fill="#FBF4E8"/>
+    </g></g>
+    <!-- trees -->
+    <g fill="#9C9A63"><circle cx="70" cy="452" r="26"/><circle cx="100" cy="460" r="20"/><circle cx="560" cy="452" r="16"/><circle cx="580" cy="458" r="12"/></g>
+    <g fill="#C2B092"><rect x="68" y="470" width="5" height="14"/><rect x="559" y="462" width="3" height="10"/></g>
+    <!-- barn + silo -->
+    <g transform="translate(628 640) scale(1.25)">
+      <rect x="44" y="-58" width="20" height="58" fill="#FBF4E8"/><path d="M44 -58 Q54 -72 64 -58Z" fill="#8FB8D4"/>
+      <path d="M0 -30 L22 -50 L44 -30 V0 H0Z" fill="#D2461C"/>
+      <path d="M-3 -29 L22 -52 L47 -29" fill="none" stroke="#FBF4E8" stroke-width="3"/>
+      <rect x="14" y="-18" width="16" height="18" fill="#FBF4E8"/>
+      <path d="M14 -18 L30 0 M30 -18 L14 0" stroke="#D2461C" stroke-width="2"/>
+    </g>
+    <g fill="#E8C677"><circle cx="230" cy="520" r="13"/><circle cx="258" cy="524" r="11"/><circle cx="720" cy="652" r="11"/><circle cx="742" cy="660" r="9"/></g>
+    <!-- sunflower/wheat field -->
+    <path d="M0 600 C200 566 380 590 560 640 C650 666 720 712 760 760 H0Z" fill="#F1D08A"/>
+    <g stroke="#DDB669" stroke-width="3" stroke-linecap="round" opacity=".85">
+      <path d="M40 640 v-14 M70 660 v-14 M110 630 v-14 M150 670 v-14 M190 645 v-14 M240 690 v-14 M290 660 v-14 M340 700 v-14 M400 690 v-14 M460 720 v-14 M520 710 v-14 M90 720 v-14 M200 730 v-14"/>
+    </g>
+    <!-- road -->
+    <path d="M230 790 C300 680 520 660 540 590 C556 534 610 498 684 482" fill="none" stroke="#C9B48E" stroke-width="40" stroke-linecap="round" opacity=".35"/>
+    <path d="M230 790 C300 680 520 660 540 590 C556 534 610 498 684 482" fill="none" stroke="#EAD8B4" stroke-width="34" stroke-linecap="round"/>
+    <path class="dash" d="M230 790 C300 680 520 660 540 590 C556 534 610 498 684 482" fill="none" stroke="#FBF4E8" stroke-width="3" stroke-dasharray="16 18" stroke-linecap="round"/>
+    <g stroke="#B49E7C" stroke-width="3" stroke-linecap="round">
+      <path d="M120 700 v-26 M160 660 v-24 M200 632 v-22 M240 612 v-20 M280 600 v-18 M320 594 v-16"/>
+      <path d="M120 682 L160 644 L200 618 L240 600 L280 590 L320 586" fill="none"/>
+    </g>
+    <!-- truck -->
+    <g>
+      <g transform="translate(-30 -26)">
+        <rect x="0" y="10" width="34" height="14" rx="3" fill="#8FB8D4"/>
+        <path d="M30 24 V6 Q30 2 34 2 H46 Q50 2 52 8 L58 14 V24Z" fill="#8FB8D4"/>
+        <path d="M36 6 H45 L50 13 H36Z" fill="#FBF4E8"/>
+        <rect x="56" y="16" width="4" height="4" fill="#F1D08A"/>
+        <g fill="#F68D3D"><circle cx="8" cy="8" r="5"/><circle cx="17" cy="7" r="5"/><circle cx="26" cy="8" r="4"/></g>
+        <circle cx="12" cy="25" r="5.5" fill="#3A5A78"/><circle cx="12" cy="25" r="2" fill="#FBF4E8"/>
+        <circle cx="46" cy="25" r="5.5" fill="#3A5A78"/><circle cx="46" cy="25" r="2" fill="#FBF4E8"/>
+      </g>
+      <animateMotion dur="15s" repeatCount="indefinite" path="M230 790 C300 680 520 660 540 590 C556 534 610 498 684 482"/>
+      <animateTransform attributeName="transform" type="scale" values="1.35;.4" dur="15s" repeatCount="indefinite" additive="sum"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.88;1" dur="15s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- seagulls -->
+    <g class="flock" style="--d:46s">
+      <g transform="translate(0 190)"><path class="wing" d="M-14 0 q7 -8 14 0 q7 -8 14 0" fill="none" stroke="#3A5A78" stroke-width="2.5" stroke-linecap="round"/></g>
+      <g transform="translate(46 168)"><path class="wing" style="animation-delay:-.3s" d="M-11 0 q5.5 -6 11 0 q5.5 -6 11 0" fill="none" stroke="#3A5A78" stroke-width="2.2" stroke-linecap="round"/></g>
+      <g transform="translate(90 206)"><path class="wing" style="animation-delay:-.6s" d="M-9 0 q4.5 -5 9 0 q4.5 -5 9 0" fill="none" stroke="#3A5A78" stroke-width="2" stroke-linecap="round"/></g>
+    </g>
+    <g class="flock" style="--d:62s;animation-delay:-30s">
+      <g transform="translate(0 300)"><path class="wing" style="animation-duration:1.1s" d="M-12 0 q6 -7 12 0 q6 -7 12 0" fill="none" stroke="#3A5A78" stroke-width="2.3" stroke-linecap="round"/></g>
+      <g transform="translate(36 318)"><path class="wing" style="animation-duration:1.1s;animation-delay:-.4s" d="M-9 0 q4.5 -5 9 0 q4.5 -5 9 0" fill="none" stroke="#3A5A78" stroke-width="2" stroke-linecap="round"/></g>
+    </g>
+  </svg>
+
+  <div class="paper nameplate">
+    <span class="tape"></span><span class="tape r blue"></span>
+    <h1 class="lockup"><span class="big">Emma</span><span class="over">Harrington</span></h1>
+    <p class="tag">Small-town love stories set in beach towns and back-road farms. Sweet with real heat, men who yearn, and a bedroom door that stays closed.</p>
+    <div class="btns">
+      <a class="btn" href="#books">Meet the books</a>
+      <a class="btn ghost" href="#newsletter">Join my newsletter</a>
+    </div>
+    <p class="kicker">The Pebble Bay series begins January 2027</p>
+  </div>
+</header>
+
+<!-- ================= BOOKS ================= -->
+<section class="band sec" id="books">
+  <div class="wrap" id="seriesList"><!-- series and books are built from SITE.series in the settings script --></div>
+</section>
+
+<!-- ================= MAP ================= -->
+<section class="band sec" id="pebble-bay">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="townHeading">Take a walk around Pebble Bay</h2>
+      <p class="aside"><span class="script" id="townPlace">Pebble Bay, Connecticut</span>Tap a pin to look around.</p>
+    </div>
+
+    <div class="town-tabs" id="townTabs" role="tablist" aria-label="Towns" hidden></div>
+
+    <div class="map-board">
+      <div class="paper map">
+        <span class="tape a"></span><span class="tape b blue"></span>
+        <div class="map-inner" id="mapInner">
+          <svg id="map-pebble-bay" class="town-map" viewBox="0 0 900 600" aria-hidden="true">
+            <!-- water -->
+            <rect width="900" height="600" fill="#A9C9DE"/>
+            <g stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".75">
+              <path d="M620 470 q10 -8 20 0 q10 -8 20 0"/><path d="M760 420 q10 -8 20 0 q10 -8 20 0"/>
+              <path d="M300 540 q10 -8 20 0 q10 -8 20 0"/><path d="M820 520 q10 -8 20 0 q10 -8 20 0"/>
+              <path d="M820 200 q10 -8 20 0 q10 -8 20 0"/><path d="M500 560 q10 -8 20 0 q10 -8 20 0"/>
+            </g>
+            <!-- land -->
+            <path d="M0 0 H770 C800 20 840 30 870 50 C890 65 880 95 845 105 C800 118 760 160 730 220 C705 270 660 320 600 360 C550 395 500 430 450 450 C410 465 370 470 330 470 C260 470 200 480 150 500 C100 520 40 525 0 525 Z" fill="#FBF4E8"/>
+            <path d="M770 0 C800 20 840 30 870 50 C890 65 880 95 845 105 C800 118 760 160 730 220 C705 270 660 320 600 360 C550 395 500 430 450 450 C410 465 370 470 330 470 C260 470 200 480 150 500 C100 520 40 525 0 525" fill="none" stroke="#F3E1BE" stroke-width="14" stroke-linejoin="round"/>
+            <!-- wooded hill to the north -->
+            <path d="M0 0 H770 C790 14 800 30 790 50 C760 90 700 140 640 150 C560 162 520 150 470 160 C380 176 300 150 200 165 C120 176 60 165 0 172 Z" fill="#D3D1A6"/>
+            <!-- rocks + lighthouse point -->
+            <path d="M800 70 Q830 40 870 52 Q892 70 870 98 Q840 110 805 98Z" fill="#D6C7AE"/>
+            <!-- trees -->
+            <g fill="#BDBA87">
+              <circle cx="250" cy="40" r="16"/><circle cx="275" cy="55" r="12"/><circle cx="300" cy="120" r="14"/><circle cx="235" cy="130" r="13"/>
+              <circle cx="640" cy="40" r="14"/><circle cx="700" cy="70" r="16"/><circle cx="670" cy="120" r="12"/><circle cx="420" cy="110" r="13"/>
+              <circle cx="110" cy="150" r="12"/><circle cx="740" cy="30" r="12"/><circle cx="520" cy="150" r="10"/>
+            </g>
+            <g fill="#9C9A63">
+              <circle cx="262" cy="48" r="9"/><circle cx="712" cy="78" r="9"/><circle cx="430" cy="118" r="8"/><circle cx="310" cy="128" r="8"/><circle cx="122" cy="156" r="7"/>
+              <circle cx="125" cy="330" r="12"/><circle cx="560" cy="330" r="10"/><circle cx="330" cy="330" r="11"/><circle cx="90" cy="420" r="13"/>
+            </g>
+            <!-- little houses on the hill -->
+            <g>
+              <rect x="350" y="62" width="24" height="18" fill="#F8E6BE"/><path d="M347 62 L362 50 L377 62Z" fill="#8FB8D4"/>
+              <rect x="388" y="44" width="22" height="16" fill="#FCDDC2"/><path d="M385 44 L399 33 L413 44Z" fill="#3A5A78"/>
+              <rect x="640" y="168" width="22" height="16" fill="#DDEAF3"/><path d="M637 168 L651 157 L665 168Z" fill="#D2461C"/>
+            </g>
+            <!-- roads -->
+            <g fill="none" stroke="#F8E6BE" stroke-width="16" stroke-linecap="round">
+              <path d="M470 0 C455 50 480 90 470 130 C460 170 440 200 430 238"/>
+              <path d="M470 130 C505 130 535 136 556 138"/>
+              <path d="M70 262 C200 240 300 240 420 238 C520 236 610 250 700 268"/>
+              <path d="M420 238 C420 300 430 350 430 405"/>
+              <path d="M262 244 C252 320 232 360 216 398"/>
+            </g>
+            <g fill="none" stroke="#F68D3D" stroke-width="2" stroke-dasharray="9 10">
+              <path d="M470 0 C455 50 480 90 470 130 C460 170 440 200 430 238"/>
+              <path d="M70 262 C200 240 300 240 420 238 C520 236 610 250 700 268"/>
+              <path d="M420 238 C420 300 430 350 430 405"/>
+              <path d="M262 244 C252 320 232 360 216 398"/>
+            </g>
+
+            <!-- The Bayview Inn -->
+            <g transform="translate(0 32)">
+              <rect x="555" y="75" width="60" height="34" fill="#FCDDC2"/>
+              <path d="M550 76 L585 52 L620 76Z" fill="#3A5A78"/>
+              <rect x="552" y="100" width="66" height="9" fill="#FBF4E8" stroke="#C2B092" stroke-width="1.5"/>
+              <g fill="#8FB8D4"><rect x="563" y="83" width="8" height="9"/><rect x="581" y="83" width="8" height="9"/><rect x="599" y="83" width="8" height="9"/></g>
+              <rect x="592" y="47" width="6" height="12" fill="#D2461C"/>
+            </g>
+            <!-- Anchor Supply -->
+            <g>
+              <rect x="150" y="196" width="60" height="38" fill="#8FB8D4"/>
+              <path d="M146 197 L180 176 L214 197Z" fill="#3A5A78"/>
+              <rect x="168" y="214" width="24" height="20" fill="#FBF4E8"/>
+              <path d="M180 186 v12 M175 191 h10 M174 196 q6 6 12 0" stroke="#FBF4E8" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <!-- pickup -->
+              <rect x="218" y="222" width="20" height="9" rx="2" fill="#F68D3D"/><path d="M236 231 V217 H246 L251 224 V231Z" fill="#F68D3D"/>
+              <circle cx="224" cy="232" r="3.5" fill="#3A5A78"/><circle cx="246" cy="232" r="3.5" fill="#3A5A78"/>
+            </g>
+            <!-- The Morning Bun -->
+            <g>
+              <rect x="305" y="195" width="50" height="30" fill="#FBF4E8" stroke="#E8D6B5" stroke-width="1.5"/>
+              <path d="M302 196 L330 178 L358 196Z" fill="#D2461C"/>
+              <path d="M303 205 h54 l-4 8 h-46z" fill="url(#awnRed)"/>
+              <rect x="324" y="213" width="12" height="12" fill="#F1D08A"/>
+            </g>
+            <!-- Harbor Blooms -->
+            <g>
+              <rect x="392" y="262" width="46" height="30" fill="#F8E6BE"/>
+              <path d="M389 263 L415 246 L441 263Z" fill="#9C9A63"/>
+              <rect x="405" y="276" width="12" height="16" fill="#FBF4E8"/>
+              <g fill="#D2461C"><circle cx="397" cy="292" r="3"/><circle cx="425" cy="293" r="3"/><circle cx="433" cy="291" r="3"/></g>
+              <g fill="#F68D3D"><circle cx="401" cy="294" r="2.5"/><circle cx="429" cy="295" r="2.5"/></g>
+            </g>
+            <!-- The Blue Lantern -->
+            <g>
+              <rect x="478" y="195" width="44" height="30" fill="#DDEAF3"/>
+              <path d="M475 196 L500 179 L525 196Z" fill="#3A5A78"/>
+              <rect x="494" y="210" width="12" height="15" fill="#FBF4E8"/>
+              <rect x="483" y="203" width="6" height="8" rx="2" fill="#F1D08A"/>
+            </g>
+            <!-- Salt Water Scoops -->
+            <g>
+              <rect x="572" y="272" width="46" height="30" fill="#FCDDC2"/>
+              <path d="M569 273 L595 255 L621 273Z" fill="#F68D3D"/>
+              <path d="M570 280 h50 l-4 7 h-42z" fill="url(#awnBlue)"/>
+              <path d="M591 300 L595 289 L599 300Z" fill="#E8C677"/><circle cx="595" cy="288" r="4" fill="#FBF4E8" stroke="#D2461C" stroke-width="1.2"/>
+            </g>
+            <!-- Pebble Bay Yacht Club + marina -->
+            <g>
+              <rect x="660" y="222" width="52" height="36" fill="#FBF4E8" stroke="#E8D6B5" stroke-width="1.5"/>
+              <path d="M656 223 L686 202 L716 223Z" fill="#3A5A78"/>
+              <g fill="#8FB8D4"><rect x="668" y="232" width="9" height="9"/><rect x="694" y="232" width="9" height="9"/></g>
+              <rect x="681" y="244" width="10" height="14" fill="#D2461C"/>
+              <rect x="724" y="196" width="2" height="40" fill="#3A5A78"/><path d="M726 197 L740 202 L726 207Z" fill="#D2461C"/>
+              <!-- docks -->
+              <rect x="700" y="270" width="175" height="8" fill="#C2B092"/>
+              <g fill="#C2B092"><rect x="740" y="278" width="6" height="52"/><rect x="792" y="278" width="6" height="52"/><rect x="844" y="278" width="6" height="52"/></g>
+              <g transform="translate(768 320)"><path d="M-12 0 h24 l-5 7 h-14z" fill="#D2461C"/><path d="M0 0 V-24 L11 -2Z" fill="#fff"/></g>
+              <g transform="translate(820 316)"><path d="M-12 0 h24 l-5 7 h-14z" fill="#FBF4E8"/><path d="M0 0 V-22 L10 -2Z" fill="#fff"/><path d="M-1 -2 V-18 L-9 -2Z" fill="#F1D08A"/></g>
+              <g transform="translate(718 318)"><path d="M-12 0 h24 l-5 7 h-14z" fill="#3A5A78"/><path d="M0 0 V-24 L11 -2Z" fill="#8FB8D4"/><path d="M-1 -2 V-17 L-8 -2Z" fill="#fff"/></g>
+            </g>
+            <!-- The Blue Buoy restaurant + charters -->
+            <g>
+              <rect x="165" y="452" width="100" height="48" fill="#C2B092"/>
+              <g fill="#C2B092"><rect x="170" y="500" width="4" height="12"/><rect x="215" y="500" width="4" height="12"/><rect x="258" y="500" width="4" height="12"/></g>
+              <rect x="180" y="415" width="70" height="40" fill="#8FB8D4"/>
+              <path d="M175 416 L215 392 L255 416Z" fill="#3A5A78"/>
+              <g fill="#FBF4E8"><rect x="190" y="425" width="10" height="10"/><rect x="230" y="425" width="10" height="10"/><rect x="208" y="437" width="14" height="18"/></g>
+              <g transform="translate(185 478)"><path d="M-9 0 Q0 -9 9 0Z" fill="#F68D3D"/><rect x="-.8" y="0" width="1.6" height="9" fill="#9C9A63"/></g>
+              <g transform="translate(245 478)"><path d="M-9 0 Q0 -9 9 0Z" fill="#D2461C"/><rect x="-.8" y="0" width="1.6" height="9" fill="#9C9A63"/></g>
+              <!-- charter boat, tied up below the deck -->
+              <g transform="translate(212 534) scale(.62)">
+                <path d="M-46 -8 H50 Q60 -8 66 -16 Q62 8 42 12 H-40 Q-46 8 -46 -8Z" fill="#3A5A78"/>
+                <rect x="-24" y="-26" width="40" height="18" rx="2" fill="#3A5A78"/>
+                <rect x="-28" y="-31" width="48" height="5" rx="1.5" fill="#3A5A78"/>
+                <g fill="#DDEAF3"><rect x="-19" y="-21" width="9" height="7"/><rect x="-6" y="-21" width="9" height="7"/></g>
+                <path d="M2 -31 V-42" stroke="#3A5A78" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+            </g>
+            <!-- The Captain's Table -->
+            <g>
+              <rect x="388" y="444" width="96" height="40" fill="#C2B092"/>
+              <g fill="#C2B092"><rect x="394" y="484" width="4" height="12"/><rect x="434" y="484" width="4" height="12"/><rect x="476" y="484" width="4" height="12"/></g>
+              <rect x="402" y="410" width="58" height="36" fill="#F1D08A"/>
+              <path d="M397 411 L431 390 L465 411Z" fill="#D2461C"/>
+              <g fill="#FBF4E8"><rect x="410" y="420" width="10" height="10"/><rect x="442" y="420" width="10" height="10"/><rect x="425" y="430" width="12" height="16"/></g>
+              <g transform="translate(400 468)"><path d="M-9 0 Q0 -9 9 0Z" fill="#F68D3D"/><rect x="-.8" y="0" width="1.6" height="9" fill="#9C9A63"/></g>
+              <g transform="translate(468 468)"><path d="M-9 0 Q0 -9 9 0Z" fill="#8FB8D4"/><rect x="-.8" y="0" width="1.6" height="9" fill="#9C9A63"/></g>
+              <g fill="#B49E7C"><circle cx="476" cy="452" r="4"/><circle cx="467" cy="452" r="4"/></g>
+            </g>
+            <!-- lighthouse -->
+            <g transform="translate(850 0)">
+              <path d="M-8 82 L-5 40 H5 L8 82Z" fill="#FBF4E8"/>
+              <path d="M-6.8 64 H6.8 L7.3 72 H-7.3Z" fill="#D2461C"/>
+              <path d="M-5.8 48 H5.8 L6.2 55 H-6.2Z" fill="#D2461C"/>
+              <rect x="-5" y="31" width="10" height="9" fill="#F1D08A"/>
+              <path d="M-7 31 L0 23 L7 31Z" fill="#3A5A78"/>
+            </g>
+            <!-- compass -->
+            <g transform="translate(58 562)">
+              <circle r="24" fill="#FBF4E8" opacity=".9"/>
+              <path d="M0 -19 L5 0 L0 19 L-5 0Z" fill="#D2461C"/><path d="M-19 0 L0 -4 L19 0 L0 4Z" fill="#3A5A78" opacity=".7"/>
+            </g>
+            <!-- labels -->
+            <text x="640" y="560" font-family="Yellowtail, cursive" font-size="32" fill="#fff" transform="rotate(-6 640 560)">Long Island Sound</text>
+            <text x="248" y="285" font-family="Yellowtail, cursive" font-size="22" fill="#9C9A63" transform="rotate(-3 248 285)">Main Street</text>
+            <defs>
+              <pattern id="awnRed" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="4" height="8" fill="#D2461C"/><rect x="4" width="4" height="8" fill="#FBF4E8"/></pattern>
+              <pattern id="awnBlue" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="4" height="8" fill="#8FB8D4"/><rect x="4" width="4" height="8" fill="#FBF4E8"/></pattern>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <aside class="paper notecard" id="note" aria-live="polite">
+        <span class="tape sand"></span>
+        <h3 id="noteTitle">Pick a pin</h3>
+        <span class="note-type" id="noteType"></span>
+        <p id="noteText">Every spot in town turns up in the books somewhere. Some of them twice, because people in Pebble Bay don't go very far.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOOR ================= -->
+<section class="band sec" id="door">
+  <div class="wrap door-wrap">
+    <div class="door-col">
+    <div class="door-scene idle" id="doorScene">
+      <div class="frame">
+        <div class="doorway">
+          <div class="peek"><span>nope, not in here</span></div>
+          <button class="door" id="doorBtn" aria-label="Knock on the bedroom door">
+            <svg class="heart" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21 C-6 9 4 -4 12 5 C20 -4 30 9 12 21Z" fill="#D2461C"/></svg>
+            <span class="panel top"></span><span class="panel bot"></span><span class="knob"></span>
+          </button>
+        </div>
+      </div>
+      <span class="door-sign">knock knock</span>
+    </div>
+    <p class="door-cta"><svg width="34" height="30" viewBox="0 0 34 30" aria-hidden="true"><path d="M17 28 C10 20 10 11 17 4 M11 10 L17 3 L23 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Go ahead, knock on the door</p>
+    </div>
+
+    <div class="paper door-copy">
+      <h2>About that door</h2>
+      <p>My books are sweet with real heat. You'll get slow burns, almost-kisses that make you yell at the page, and actual kisses that were worth the wait. You'll get men who look at the heroine like she personally invented summer.</p>
+      <p>When things go further, the door closes. You know what happened. I know what happened. We don't need to watch.</p>
+      <div class="levels" aria-label="What to expect">
+        <div class="level"><b>Yearning</b><span class="meter" data-n="5"></span></div>
+        <div class="level"><b>Kissing</b><span class="meter" data-n="4"></span></div>
+        <div class="level"><b>On the page</b><span class="script">door's closed</span></div>
+      </div>
+      <p class="reply" id="doorReply" aria-live="polite"></p>
+      <p class="door-tip">Curious? Knock on the door three times to hear the whole story.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="band sec" id="about">
+  <div class="wrap about">
+    <figure class="polaroid">
+      <span class="tape"></span>
+      <!-- AUTHOR PHOTO: upload a square photo to images/emma-photo.jpg (or change the path below). -->
+      <div class="portrait-ph"><span>Emma's photo goes here</span><img src="images/emma-photo.jpg" alt="Emma Harrington" onerror="this.remove()"></div>
+      <figcaption class="cap">me, mid-chapter</figcaption>
+    </figure>
+    <div class="paper letter">
+      <span class="tape blue"></span>
+      <h2>Hi, I'm Emma</h2>
+      <p>I grew up on the movies where somebody runs through an airport in the rain and the whole town shows up for the big gesture. I still think those are the best stories there are, so now I write them. Mine are set in places with one stoplight, a diner that's been open since 1962, and a guy who's been waiting a very long time for you to notice him.</p>
+      <p>My heroes are the patient kind. They fix your porch step without being asked and remember how you take your coffee. They will wait. They will also, eventually, lose their minds about it a little, and that's my favorite part to write.</p>
+      <p>When I'm not writing, I'm probably at the beach with a paperback and a sandwich that has too much sand in it to finish.</p>
+      <span class="sig">xo, Emma</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POSTCARD ================= -->
+<section class="band sec" id="postcard">
+  <div class="wrap">
+    <div class="head">
+      <h2>Send me a postcard</h2>
+      <p class="aside">Reader mail, press, events, or business. Pick a topic so your note lands in the right pile.</p>
+    </div>
+
+    <div class="post-area">
+      <div class="paper sent" id="sent" aria-live="polite">
+        <span class="script">It's in the mail!</span>
+        <p id="sentMsg">Thanks for writing.</p>
+        <button class="btn ghost" id="again" type="button">Write another</button>
+      </div>
+
+      <form class="postcard" id="pc" name="postcard" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="postcard">
+        <p class="sr"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="msg">
+          <label for="pcMsg" class="dear">Dear Emma,</label>
+          <textarea id="pcMsg" name="message" placeholder="Write your note here..." required></textarea>
+        </div>
+        <div class="addr">
+          <div class="stamp" aria-hidden="true">
+            <div class="stamp-art">
+              <svg viewBox="0 0 80 96" preserveAspectRatio="xMidYMid slice">
+                <rect width="80" height="96" fill="#8FB8D4"/>
+                <circle cx="58" cy="26" r="11" fill="#F1D08A"/>
+                <rect y="66" width="80" height="30" fill="#3A5A78"/>
+                <path d="M31 68 L35 28 H45 L49 68Z" fill="#FBF4E8"/>
+                <path d="M33 46 H47 L48 54 H32Z" fill="#D2461C"/>
+                <path d="M31 28 L40 18 L49 28Z" fill="#D2461C"/>
+                <text x="6" y="16" font-family="League Spartan, sans-serif" font-weight="700" font-size="12" fill="#3A5A78">27¢</text>
+              </svg>
+            </div>
+          </div>
+          <svg class="postmark" id="postmark" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="44" fill="none" stroke="#D2461C" stroke-width="3"/>
+            <circle cx="60" cy="60" r="34" fill="none" stroke="#D2461C" stroke-width="1.5"/>
+            <text x="60" y="57" text-anchor="middle" font-family="League Spartan, sans-serif" font-weight="700" font-size="11" fill="#D2461C">HARRINGTON</text>
+            <text x="60" y="72" text-anchor="middle" font-family="League Spartan, sans-serif" font-weight="700" font-size="11" fill="#D2461C">CONN.</text>
+            <path d="M-10 40 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#D2461C" stroke-width="2.5" transform="translate(70 10)"/>
+            <path d="M-10 50 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#D2461C" stroke-width="2.5" transform="translate(70 10)"/>
+          </svg>
+
+          <div class="printed">Emma Harrington<small>Author mailbox</small></div>
+
+          <label for="pcTopic">This is about</label>
+          <select id="pcTopic" name="topic" required>
+            <option value="" disabled selected>Choose one</option>
+            <option value="A reader note">A reader note</option>
+            <option value="PR and media">PR and media</option>
+            <option value="Agent and representation">Agent and representation</option>
+            <option value="Events and signings">Events and signings</option>
+            <option value="Book clubs and libraries">Book clubs and libraries</option>
+            <option value="Something else">Something else</option>
+          </select>
+          <label for="pcName">From</label>
+          <input id="pcName" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+          <label for="pcEmail">Write back to</label>
+          <input id="pcEmail" name="email" type="email" placeholder="you@email.com" autocomplete="email" required>
+          <p class="form-err" id="pcErr" aria-live="assertive"></p>
+          <button class="btn send" type="submit">Mail it</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+<section class="band sec" id="newsletter">
+  <div class="wrap">
+    <div class="paper signup-card">
+      <span class="tape a"></span><span class="tape b blue"></span>
+      <span class="script">Come on in</span>
+      <h2>Join my newsletter</h2>
+      <p>Once a month I'll send release dates, cover reveals, bonus scenes, and the first news about every new series. No spam. I barely have time to send the one email.</p>
+      <form class="signup" id="signup" novalidate>
+        <label class="sr" for="nlEmail">Email address</label>
+        <input class="field" id="nlEmail" type="email" placeholder="you@email.com" autocomplete="email" required>
+        <button class="btn" type="submit">Join</button>
+      </form>
+      <p class="signup-done" id="signupDone" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<footer class="band">
+  <div class="wrap">
+    <div class="foot-name">Emma Harrington</div>
+    <div class="socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Goodreads</a><a href="#">BookBub</a></div>
+    <p class="small">© 2026 Emma Harrington. Written somewhere near the water.</p>
+  </div>
+</footer>
+
+
+<!-- =====================================================================
+     SITE SETTINGS. Edit this block to update books, series and towns.
+     ---------------------------------------------------------------------
+     ADD A NEW SERIES: copy one whole { ... } entry inside "series" and
+       change the name, town and books.
+     ADD A NEW TOWN: copy one { ... } entry inside "towns". Give it a map
+       image (map: "images/your-town-map.jpg") and pins. Pin x / y are
+       percentages across / down the map image.
+     BOOK COVERS: put the image path or link in "cover", for example
+       cover: "images/saltwater-promises.jpg". Leave it empty ("") to show
+       the illustrated placeholder cover instead.
+     COMING SOON BOOKS: status: "coming-soon" only needs a label.
+     ===================================================================== -->
+<script>
+window.SITE = {
+  series: [
+    {
+      name: "The Pebble Bay series",
+      short: "Pebble Bay",
+      tagline: "Four couples, one nosy town.",
+      town: "pebble-bay",
+      books: [
+        {
+          label: "Book 1",
+          status: "available",           // "available" (has a back cover) or "coming-soon"
+          title: "Saltwater Promises",
+          release: "January 2027",
+          cover: "",                     // e.g. "images/saltwater-promises.jpg"
+          art: "lighthouse",             // placeholder art if no cover: lighthouse, farm, beach, harbor
+          colors: "peach",               // placeholder colors: peach, blue, sand, mist
+          blurb: [
+            "Nora Finch came home to sell her grandmother's beach cottage, not to fall for the guy fixing its roof.",
+            "Cal Bennett has loved her since tenth grade and has never said a single word about it. He isn't about to start now, even with her living twenty feet away and stealing his flannels off the porch rail."
+          ],
+          tropes: ["He fell first", "Hometown return", "Fixer-upper"],
+          buy: [
+            { store: "Amazon",           url: "https://www.amazon.com/s?k=Emma+Harrington" },
+            { store: "Barnes & Noble",   url: "https://www.barnesandnoble.com/s/Emma%20Harrington" },
+            { store: "Bookshop.org",     url: "https://bookshop.org/search?keywords=Emma+Harrington" },
+            { store: "Apple Books",      url: "https://books.apple.com/us/search?term=Emma%20Harrington" },
+            { store: "Kobo",             url: "https://www.kobo.com/us/en/search?query=Emma%20Harrington" },
+            { store: "Audible",          url: "https://www.audible.com/search?keywords=Emma+Harrington" }
+          ]
+        },
+        { label: "Book 2", status: "coming-soon" },
+        { label: "Book 3", status: "coming-soon" },
+        { label: "Book 4", status: "coming-soon" }
+      ]
+    }
+  ],
+
+  towns: [
+    {
+      id: "pebble-bay",
+      name: "Pebble Bay",
+      state: "Connecticut",
+      map: "builtin",                    // or an image path, e.g. "images/new-town-map.jpg"
+      intro: "Every spot in town turns up in the books somewhere. Some of them twice, because people in Pebble Bay don't go very far.",
+      pins: [
+        { name: "Anchor Supply", type: "Hardware store", x: 20, y: 29.5, color: "#3A5A78",
+          note: "Frank Dawson has run Anchor Supply for thirty years. He'll sell you exactly what you need, plus an opinion you didn't ask for. If your porch step is broken, he already knows." },
+        { name: "The Morning Bun", type: "Coffee shop and bakery", x: 36.7, y: 29.2, color: "#D2461C",
+          note: "Cinnamon buns the size of your face, coffee strong enough to fix a bad night, and a line out the door every Saturday. Get there before nine." },
+        { name: "Harbor Blooms", type: "Flower shop", x: 46.1, y: 40.8, color: "#9C9A63",
+          note: "Buckets of hydrangeas out front all summer. When a man in this town is in trouble, this is the first place he stops." },
+        { name: "The Blue Lantern", type: "Gift shop", x: 55.6, y: 29.5, color: "#6E9BBB",
+          note: "Sea glass jewelry, candles that smell like a beach house, and at least one thing you didn't know you needed until you were holding it." },
+        { name: "Salt Water Scoops", type: "Ice cream shop", x: 66.1, y: 42, color: "#F68D3D",
+          note: "The line wraps around the corner on hot nights. Order the salted caramel and eat it on the bench by the harbor like everybody else." },
+        { name: "Yacht Club & Marina", type: "Pebble Bay Yacht Club and marina", x: 76.2, y: 33.3, color: "#3A5A78",
+          note: "Sailboats, string lights, and Friday night drinks on the dock. Half the town's gossip starts right here." },
+        { name: "The Bayview Inn", type: "Inn", x: 65, y: 14, color: "#F68D3D",
+          note: "Up the hill, with a wraparound porch and the best view of the water. Every room has a rocking chair and somebody's love story." },
+        { name: "The Blue Buoy", type: "Restaurant and Blue Buoy Charters", x: 23.9, y: 65.3, color: "#6E9BBB",
+          note: "Lobster rolls on the deck and a charter boat tied up right below it. Book the sunset sail and try not to fall in love. Nobody manages it." },
+        { name: "The Captain's Table", type: "Bar and brewing", x: 47.9, y: 64.7, color: "#D2461C",
+          note: "Local beer, a jukebox stuck in 2003, and a back deck over the water. It's where you go when you need to talk, or when you really don't." },
+        { name: "Gull Point Light", type: "Lighthouse", x: 90.6, y: 14.2, color: "#D2461C",
+          note: "The lamp blinks twice for luck, according to the locals. The locals say a lot of things. Nora and Cal almost kiss here in book one. Almost." }
+      ]
+    }
+  ]
+};
+</script>
+
+<div class="modal" id="bookModal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="modal-close" type="button" data-close aria-label="Close">&times;</button>
+    <div class="m-cover" aria-hidden="true"></div>
+    <div class="m-body">
+      <span class="script m-ser" id="mSer"></span>
+      <h3 id="mTitle"></h3>
+      <p class="m-when" id="mWhen"></p>
+      <div class="m-blurb" id="mBlurb"></div>
+      <div class="chips" id="mChips"></div>
+      <div class="m-buy" id="mBuy"><span class="m-buy-label">Buy this book</span><div class="stores" id="mStores"></div></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const NS = 'http://www.w3.org/2000/svg';
+  const scene = document.getElementById('scene');
+
+  /* hero waves */
+  function wavePath(y,a,p,close){
+    let d = `M0 ${y}`;
+    for(let x=0;x<3000;x+=p) d += ` q${p/4} ${-a} ${p/2} 0 t${p/2} 0`;
+    return close ? d + ' V760 H0Z' : d;
+  }
+  const bands = {
+    waves1:[{y:474,a:2,p:80,c:'#B9D3E5',d:26,dir:1}],
+    waves2:[{y:500,a:4,p:120,c:'#9DBFD8',d:30,dir:-1},{y:540,a:6,p:160,c:'#86AECB',d:34,dir:1}],
+    waves3:[{y:600,a:8,p:200,c:'#6E9BBB',d:38,dir:-1},{y:680,a:10,p:240,c:'#56809F',d:44,dir:1}]
+  };
+  Object.entries(bands).forEach(([id,list])=>{
+    const host = document.getElementById(id);
+    list.forEach(w=>{
+      const outer = document.createElementNS(NS,'g');
+      if(w.dir<0) outer.setAttribute('transform',`translate(${-2*w.p} 0)`);
+      const g = document.createElementNS(NS,'g');
+      g.setAttribute('class','wv');
+      g.setAttribute('style',`--d:${w.d}s;--shift:${w.dir>0?-2*w.p:2*w.p}px`);
+      const fill = document.createElementNS(NS,'path');
+      fill.setAttribute('d',wavePath(w.y,w.a,w.p,true)); fill.setAttribute('fill',w.c);
+      const foam = document.createElementNS(NS,'path');
+      foam.setAttribute('d',wavePath(w.y,w.a,w.p,false)); foam.setAttribute('fill','none');
+      foam.setAttribute('stroke','#FBF4E8'); foam.setAttribute('stroke-width','2'); foam.setAttribute('opacity','.55');
+      g.append(fill,foam); outer.appendChild(g); host.appendChild(outer);
+    });
+  });
+
+  const mq = matchMedia('(max-width:760px)');
+  function frame(){
+    if(mq.matches){ scene.setAttribute('viewBox','640 150 700 600'); scene.setAttribute('preserveAspectRatio','xMidYMid meet'); }
+    else { scene.setAttribute('viewBox','0 0 1440 760'); scene.setAttribute('preserveAspectRatio','xMidYMax slice'); }
+  }
+  frame(); mq.addEventListener ? mq.addEventListener('change',frame) : mq.addListener(frame);
+  if(reduce && scene.pauseAnimations) scene.pauseAnimations();
+
+  /* ---------- placeholder cover art ---------- */
+  const ART = {
+    lighthouse: `<svg class="motif" viewBox="0 0 200 180" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                <circle cx="60" cy="112" r="34" fill="#F1D08A"/>
+                <rect y="112" width="200" height="68" fill="#8FB8D4"/>
+                <path d="M0 126 q12 -5 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" stroke="#fff" stroke-width="2.5" fill="none" opacity=".8"/>
+                <path d="M100 116 Q120 98 160 104 Q190 100 200 116Z" fill="#D6C7AE"/>
+                <path d="M138 106 L143 46 H159 L164 106Z" fill="#FBF4E8"/>
+                <path d="M141 76 H161 L162 88 H140Z" fill="#D2461C"/>
+                <rect x="143" y="34" width="16" height="12" fill="#F1D08A"/>
+                <path d="M140 34 L151 24 L162 34Z" fill="#3A5A78"/>
+              </svg>`,
+    farm: `<svg class="motif" viewBox="0 0 200 180" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                <path d="M0 110 Q60 88 120 104 T200 98 V180 H0Z" fill="#D3D1A6"/>
+                <path d="M0 136 Q70 118 140 134 T200 130 V180 H0Z" fill="#BDBA87"/>
+                <path d="M34 112 L56 96 L78 112 V138 H34Z" fill="#D2461C"/>
+                <path d="M32 113 L56 94 L80 113" fill="none" stroke="#fff" stroke-width="2.5"/>
+                <rect x="50" y="122" width="12" height="16" fill="#FBF4E8"/>
+                <path d="M100 180 C110 160 140 150 170 140" stroke="#EAD8B4" stroke-width="12" fill="none" stroke-linecap="round"/>
+                <g fill="#F68D3D"><circle cx="20" cy="160" r="3.5"/><circle cx="40" cy="166" r="3.5"/><circle cx="60" cy="160" r="3.5"/><circle cx="80" cy="168" r="3.5"/></g>
+              </svg>`,
+    beach: `<svg class="motif" viewBox="0 0 200 180" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                <rect y="112" width="200" height="68" fill="#F3E1BE"/>
+                <path d="M0 110 Q50 100 100 110 T200 108 V120 Q150 114 100 122 T0 120Z" fill="#8FB8D4"/>
+                <path d="M60 150 c-10 -16 14 -22 12 -6 c-2 -16 22 -10 12 6 l-12 12z" fill="#FCDDC2" stroke="#D2461C" stroke-width="2.5"/>
+                <g transform="translate(150 150)">
+                  <rect x="-1.5" y="-30" width="3" height="34" fill="#9C9A63"/>
+                  <path d="M-26 -26 Q0 -50 26 -26Z" fill="#FBF4E8"/>
+                  <path d="M-26 -26 Q-15 -43 -4 -45 L-8 -26Z M4 -45 Q15 -43 26 -26 L8 -26Z" fill="#F68D3D"/>
+                </g>
+              </svg>`,
+    harbor: `<svg class="motif" viewBox="0 0 200 180" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                <path d="M0 62 Q50 82 100 66 T200 64" fill="none" stroke="#9C9A63" stroke-width="1.2"/>
+                <g fill="#F1D08A"><circle cx="16" cy="68" r="4"/><circle cx="40" cy="76" r="4"/><circle cx="64" cy="76" r="4"/><circle cx="88" cy="70" r="4"/><circle cx="112" cy="65" r="4"/><circle cx="136" cy="68" r="4"/><circle cx="160" cy="70" r="4"/><circle cx="184" cy="66" r="4"/></g>
+                <rect x="10" y="100" width="40" height="50" fill="#FCDDC2"/><path d="M8 100 L30 84 L52 100Z" fill="#D2461C"/>
+                <rect x="56" y="92" width="44" height="58" fill="#FBF4E8"/><path d="M54 92 L78 76 L102 92Z" fill="#8FB8D4"/>
+                <rect x="106" y="104" width="38" height="46" fill="#F1D08A"/><path d="M104 104 L125 90 L146 104Z" fill="#3A5A78"/>
+                <rect x="150" y="96" width="42" height="54" fill="#F8E6BE"/><path d="M148 96 L171 80 L194 96Z" fill="#F68D3D"/>
+                <g fill="#8FB8D4"><rect x="20" y="112" width="8" height="10"/><rect x="66" y="104" width="8" height="10"/><rect x="82" y="104" width="8" height="10"/><rect x="118" y="116" width="8" height="10"/><rect x="162" y="108" width="8" height="10"/></g>
+                <rect y="150" width="200" height="30" fill="#3A5A78"/>
+              </svg>`
+  };
+  const COLORS = {peach:'c1', blue:'c2', sand:'c3', mist:'c4'};
+  const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  function illustrated(series, b){
+    return `<span class="cover ${COLORS[b.colors]||'c1'}"><span class="top"><span class="ser">${esc(series.short)}, ${esc((b.label||'').toLowerCase())}</span><span class="ttl">${esc(b.title)}</span></span>${ART[b.art]||ART.lighthouse}<span class="auth">EMMA HARRINGTON</span></span>`;
+  }
+  function coverHTML(series, b){
+    if(b.cover) return `<span class="cover cover-img"><img src="${esc(b.cover)}" alt="Cover of ${esc(b.title)}" loading="lazy"></span>`;
+    return illustrated(series, b);
+  }
+
+  /* ---------- series + books ---------- */
+  const list = document.getElementById('seriesList');
+  SITE.series.forEach((series, si)=>{
+    const block = document.createElement('div');
+    block.className = 'series';
+    if(si===0) block.id = 'series-' + si;
+    const slots = series.books.map((b, bi)=>{
+      if(b.status === 'coming-soon'){
+        return `<div class="slot soon">
+          <div class="cover-wrap"><span class="cover cover-soon" role="img" aria-label="${esc(series.short)} ${esc(b.label)}, coming soon">
+            <span class="soon-ser">${esc(series.short)}</span>
+            <span class="soon-num">${esc(b.label)}</span>
+            <span class="soon-stamp">Coming soon</span>
+          </span></div>
+          <div class="book-meta"><span>${esc(b.label)}</span><span class="when">Coming soon</span></div>
+        </div>`;
+      }
+      return `<div class="slot">
+        <button class="book" data-series="${si}" data-book="${bi}" aria-haspopup="dialog" aria-label="${esc(b.title)}, ${esc(b.label)}. Read the back cover.">
+          <span class="cover-wrap">${coverHTML(series, b)}</span>
+          <span class="readback">Read the back</span>
+        </button>
+        <div class="book-meta"><span>${esc(b.label)}</span><span class="when">${esc(b.release||'')}</span></div>
+      </div>`;
+    }).join('');
+    block.innerHTML = `<div class="head"><h2>${esc(series.name)}</h2><p class="aside"><span class="script">${esc(series.tagline||'')}</span>Tap a cover to read the back.</p></div><div class="shelf">${slots}</div>`;
+    list.appendChild(block);
+  });
+  /* if an uploaded cover image can't load, fall back to the illustrated one */
+  list.querySelectorAll('.cover-img img').forEach(img=>{
+    img.addEventListener('error',()=>{
+      const btn = img.closest('.book'); const s = SITE.series[btn.dataset.series], b = s.books[btn.dataset.book];
+      img.closest('.cover').outerHTML = illustrated(s, b);
+    }, {once:true});
+  });
+
+  /* ---------- book back-cover panel ---------- */
+  const modal = document.getElementById('bookModal'), panel = modal.querySelector('.modal-panel');
+  let lastFocus = null;
+  function openBook(btn){
+    const series = SITE.series[+btn.dataset.series], b = series.books[+btn.dataset.book];
+    document.getElementById('mSer').textContent = `${series.short}, ${(b.label||'').toLowerCase()}`;
+    document.getElementById('mTitle').textContent = b.title;
+    document.getElementById('mWhen').textContent = b.release ? `${b.label}. Out ${b.release}` : b.label;
+    const bl = document.getElementById('mBlurb'); bl.innerHTML = '';
+    (b.blurb||[]).forEach(t=>{ const p=document.createElement('p'); p.textContent=t; bl.appendChild(p); });
+    const ch = document.getElementById('mChips'); ch.innerHTML = '';
+    (b.tropes||[]).forEach(t=>{ const c=document.createElement('span'); c.className='chip'; c.textContent=t; ch.appendChild(c); });
+    const st = document.getElementById('mStores'); st.innerHTML = '';
+    (b.buy||[]).forEach(l=>{ const a=document.createElement('a'); a.href=l.url; a.target='_blank'; a.rel='noopener'; a.textContent=l.store; st.appendChild(a); });
+    document.getElementById('mBuy').hidden = !(b.buy && b.buy.length);
+    const mc = modal.querySelector('.m-cover'); mc.innerHTML = '';
+    mc.appendChild(btn.querySelector('.cover').cloneNode(true));
+    lastFocus = btn;
+    modal.hidden = false; document.body.classList.add('modal-open');
+    panel.scrollTop = 0;
+    modal.querySelector('.modal-close').focus();
+  }
+  function closeBook(){
+    modal.hidden = true; document.body.classList.remove('modal-open');
+    if(lastFocus) lastFocus.focus();
+  }
+  list.addEventListener('click',e=>{ const btn = e.target.closest('.book'); if(btn) openBook(btn); });
+  modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeBook));
+  document.addEventListener('keydown',e=>{
+    if(modal.hidden) return;
+    if(e.key==='Escape'){ closeBook(); return; }
+    if(e.key==='Tab'){
+      const f = panel.querySelectorAll('button, a[href]');
+      const first=f[0], last=f[f.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* ---------- towns + map ---------- */
+  const mapInner = document.getElementById('mapInner'), note = document.getElementById('note'), tabs = document.getElementById('townTabs');
+  function showTown(ti){
+    const town = SITE.towns[ti];
+    document.getElementById('townHeading').textContent = `Take a walk around ${town.name}`;
+    document.getElementById('townPlace').textContent = `${town.name}, ${town.state}`;
+    mapInner.querySelectorAll('.pin, .town-img').forEach(el=>el.remove());
+    mapInner.querySelectorAll('.town-map').forEach(svg=>svg.style.display = (town.map==='builtin' && svg.id==='map-'+town.id) ? '' : 'none');
+    if(town.map !== 'builtin'){
+      const img = document.createElement('img'); img.className='town-img'; img.src = town.map; img.alt = `Map of ${town.name}`;
+      mapInner.prepend(img);
+    }
+    town.pins.forEach(pin=>{
+      const b = document.createElement('button');
+      b.className = 'pin' + (pin.align==='left' ? ' lbl-left' : ''); b.setAttribute('aria-pressed','false'); b.setAttribute('aria-label', pin.name + (pin.type ? ', ' + pin.type : ''));
+      b.style.left = pin.x + '%'; b.style.top = pin.y + '%';
+      b.innerHTML = `<svg viewBox="0 0 40 52"><path d="M20 50 C20 50 4 30 4 18 A16 16 0 0 1 36 18 C36 30 20 50 20 50Z" fill="${esc(pin.color||'#D2461C')}" stroke="#fff" stroke-width="2.5"/><circle cx="20" cy="18" r="6" fill="#fff"/></svg><span class="lbl">${esc(pin.name)}</span>`;
+      b.addEventListener('click',()=>{
+        mapInner.querySelectorAll('.pin').forEach(o=>o.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true');
+        document.getElementById('noteTitle').textContent = pin.name;
+        document.getElementById('noteType').textContent = pin.type || '';
+        document.getElementById('noteText').textContent = pin.note;
+        note.classList.remove('flash'); void note.offsetWidth; note.classList.add('flash');
+      });
+      mapInner.appendChild(b);
+    });
+    document.getElementById('noteTitle').textContent = 'Pick a pin';
+    document.getElementById('noteType').textContent = '';
+    document.getElementById('noteText').textContent = town.intro || '';
+    tabs.querySelectorAll('button').forEach((t,i)=>t.setAttribute('aria-selected', i===ti ? 'true':'false'));
+  }
+  if(SITE.towns.length > 1){
+    tabs.hidden = false;
+    SITE.towns.forEach((t,i)=>{
+      const b = document.createElement('button'); b.type='button'; b.setAttribute('role','tab'); b.textContent = t.name;
+      b.addEventListener('click',()=>showTown(i)); tabs.appendChild(b);
+    });
+  }
+  showTown(0);
+
+  /* meters */
+  const heart = f => `<svg viewBox="0 0 24 22"><path d="M12 21 C-6 9 4 -4 12 5 C20 -4 30 9 12 21Z" fill="${f?'#D2461C':'none'}" stroke="#D2461C" stroke-width="2"/></svg>`;
+  document.querySelectorAll('.meter').forEach(m=>{ const n=+m.dataset.n; m.innerHTML = Array.from({length:5},(_,i)=>`<i>${heart(i<n)}</i>`).join(''); });
+
+  /* door */
+  const replies = ['Nice try. Some doors stay closed for a reason.','Still closed. He made her pancakes after, if that helps.',"Okay, fine. They were very happy. That's all you get."];
+  let knocks = 0; const ds = document.getElementById('doorScene');
+  document.getElementById('doorBtn').addEventListener('click',()=>{
+    ds.classList.add('open');
+    ds.classList.remove('idle');
+    document.getElementById('doorReply').textContent = replies[knocks % replies.length];
+    knocks++; clearTimeout(ds._t); ds._t = setTimeout(()=>ds.classList.remove('open'),1100);
+  });
+
+  /* newsletter */
+  const valid = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  document.getElementById('signup').addEventListener('submit',e=>{
+    e.preventDefault();
+    const em = document.getElementById('nlEmail'), out = document.getElementById('signupDone');
+    if(!valid(em.value)){ out.textContent = 'That email looks off. Check for a typo?'; em.focus(); return; }
+    // Connect your newsletter service (Kit, MailerLite, etc.) here.
+    out.textContent = "You're in! Watch your inbox for the next one.";
+    em.value = '';
+  });
+
+  /* postcard */
+  const replyByTopic = {
+    "A reader note":"Thanks for writing. I read every reader note myself, even when my replies are slow.",
+    "PR and media":"Thanks for reaching out. Press and media notes get a reply within a few business days.",
+    "Agent and representation":"Thanks for reaching out. I'll be in touch about representation within a few business days.",
+    "Events and signings":"Thanks! I love a signing. I'll check the calendar and get back to you soon.",
+    "Book clubs and libraries":"A book club pick? I'm honored. I'll write back soon about visits and discussion guides.",
+    "Something else":"Thanks for writing. I'll get back to you as soon as I can."
+  };
+  const pc = document.getElementById('pc'), err = document.getElementById('pcErr'),
+        mark = document.getElementById('postmark'), sent = document.getElementById('sent');
+  /* Sends through Netlify Forms once the site is on Netlify.
+     In this preview (or opened from your computer) it just plays the animation. */
+  const isPreview = location.protocol === 'file:' || /claude/.test(location.hostname);
+  const sendBtn = pc.querySelector('.send');
+  pc.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const msg = document.getElementById('pcMsg'), topic = document.getElementById('pcTopic'),
+          nm = document.getElementById('pcName'), em = document.getElementById('pcEmail');
+    if(!msg.value.trim()){ err.textContent = 'Your postcard is blank. Write a note first.'; msg.focus(); return; }
+    if(!topic.value){ err.textContent = 'Pick what your note is about.'; topic.focus(); return; }
+    if(!nm.value.trim()){ err.textContent = "Sign your name so Emma knows who it's from."; nm.focus(); return; }
+    if(!valid(em.value)){ err.textContent = 'Add an email Emma can write back to.'; em.focus(); return; }
+    err.textContent = '';
+    if(!isPreview){
+      sendBtn.disabled = true; sendBtn.textContent = 'Mailing...';
+      try{
+        const res = await fetch('/', {
+          method:'POST',
+          headers:{'Content-Type':'application/x-www-form-urlencoded'},
+          body:new URLSearchParams(new FormData(pc)).toString()
+        });
+        if(!res.ok) throw new Error(res.status);
+      }catch(ex){
+        err.textContent = "Your postcard didn't go through. Please try again in a minute.";
+        sendBtn.disabled = false; sendBtn.textContent = 'Mail it';
+        return;
+      }
+      sendBtn.disabled = false; sendBtn.textContent = 'Mail it';
+    }
+    document.getElementById('sentMsg').textContent = replyByTopic[topic.value];
+    mark.classList.add('on');
+    setTimeout(()=>pc.classList.add('mailing'), reduce?0:650);
+    setTimeout(()=>{ pc.style.display='none'; sent.classList.add('show'); document.getElementById('again').focus(); }, reduce?50:1650);
+  });
+  document.getElementById('again').addEventListener('click',()=>{
+    pc.reset(); mark.classList.remove('on'); sent.classList.remove('show');
+    pc.style.display=''; requestAnimationFrame(()=>pc.classList.remove('mailing'));
+    document.getElementById('pcMsg').focus();
+  });
+})();
+</script>
+</body>
+</html>
